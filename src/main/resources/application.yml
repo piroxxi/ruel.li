@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ruel.li.2
+  sql.init.mode: always
+server.port: 8081
