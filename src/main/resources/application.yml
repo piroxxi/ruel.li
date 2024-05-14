@@ -1,5 +1,10 @@
 spring:
   application:
     name: ruel.li.2
-  sql.init.mode: always
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
 server.port: 8081
