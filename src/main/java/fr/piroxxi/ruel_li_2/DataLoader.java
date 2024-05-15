@@ -1,22 +1,31 @@
 package fr.piroxxi.ruel_li_2;
 
+import fr.piroxxi.ruel_li_2.role.Role;
+import fr.piroxxi.ruel_li_2.role.RoleName;
+import fr.piroxxi.ruel_li_2.role.RoleRepository;
 import fr.piroxxi.ruel_li_2.user.User;
-import fr.piroxxi.ruel_li_2.user.UserRepository;
+import fr.piroxxi.ruel_li_2.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import static fr.piroxxi.ruel_li_2.role.RoleName.ADMIN;
+
 @Component
 @RequiredArgsConstructor
 public class DataLoader implements ApplicationRunner {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
+    private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
     public void run(ApplicationArguments args) {
-        userRepository.save(
+        for (RoleName name : RoleName.values()) {
+            roleRepository.save(Role.builder().name(name.name()).build());
+        }
+        User piroxxiAdmin = userService.createUser(
                 User.builder()
                         .username("piroxxi")
                         .email("piroxxi@gmail.com")
@@ -26,5 +35,7 @@ public class DataLoader implements ApplicationRunner {
                         .isNotLocked(true)
                         .build()
         );
+
+        userService.addRole(piroxxiAdmin, ADMIN);
     }
 }
