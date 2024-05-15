@@ -1,3 +1,20 @@
+# RUEL.LI
+
+## Start the project
+### Prerequirements
+1. Having Docker installed (at least a docker deamon runnning, maybe Docker Desktop if on windows).
+2. Have JDK (duh 🙄)
+### How to run
+Start the RuelliApplication.
+
+This will invoke the DockerComposeLifecycleManager
+> INFO 20484 --- [ruel.li.2] [           main] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file 'C:\dev\workspace\ruel.li.2\compose.yml'
+
+This will start a docker image of MySQL (version 8+) in docker, and automatically configure it for your application.
+
+Subsequently, the schema in the database will be created via Hibernate (looking at the annotations and auto-detecting the model).
+
+Plus, a DataLoader class will create a minimal amount of Data (i.e. a user with username : piroxxi).
 
 
 ## If you need to connect to the database
