@@ -1,10 +1,13 @@
 spring:
   application:
-    name: ruel.li.2
+    name: ruel.li
   jpa:
     generate-ddl: true
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
 
+application:
+  title: ruel.li
+  version: 0.1.0
 server.port: 8081
