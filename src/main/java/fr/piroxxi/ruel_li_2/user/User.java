@@ -1,10 +1,8 @@
 package fr.piroxxi.ruel_li_2.user;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import fr.piroxxi.ruel_li_2.role.Role;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -14,6 +12,8 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT;
 
@@ -41,4 +41,15 @@ public class User {
     private boolean isUsingMFA;
     @CreationTimestamp
     private LocalDateTime createdAt;
+
+    @JoinTable
+    @ManyToMany
+    private Set<Role> roles;
+
+    public void addRole(Role role) {
+        if(roles == null){
+            roles = new HashSet<>();
+        }
+        roles.add(role);
+    }
 }

@@ -1,11 +1,6 @@
 package fr.piroxxi.ruel_li_2.user;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
-
-public interface UserRepository extends Repository<User, String> {
-    User save(User person);
-
-    Optional<User> findById(String id);
+public interface UserRepository extends CrudRepository<User, String> {
 }
