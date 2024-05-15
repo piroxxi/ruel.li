@@ -1,12 +1,10 @@
 package fr.piroxxi.ruel_li_2.user;
 
 import fr.piroxxi.ruel_li_2.user.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -22,6 +20,11 @@ public class UserController {
         User user = service.getUser(id);
         UserDTO dto = UserDTOMapper.fromUser(user);
         return ResponseEntity.created(getUserUri()).body(dto);
+    }
+
+    @PostMapping
+    void createUser(@RequestBody @Valid User user) {
+        service.createUser(user);
     }
 
     private URI getUserUri() {
