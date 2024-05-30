@@ -1,4 +1,7 @@
-<div class='flex flex-row gap-4 border-t-2'>
+<div
+  class='flex flex-row gap-4 border-t-2'
+  [routerLink]="['/alley', alley.id]"
+>
   <img
     class="w-32"
     [src]="alley.image"

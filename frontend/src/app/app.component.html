@@ -1,9 +1,11 @@
 <main class="m-16">
   <header class="flex flex-row bg-blue-200 mb-4">
-    <img class="w-24" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
+    <a [routerLink]="['/']">
+      <img class="w-24" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
+    </a>
     <h1 class="text-4xl bold text-white px-16 py-8">Ruel.li</h1>
   </header>
   <section>
-    <app-alley-list [alleyList]="alleyList"></app-alley-list>
+    <router-outlet></router-outlet>
   </section>
 </main>
