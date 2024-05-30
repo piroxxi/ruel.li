@@ -1,0 +1,12 @@
+<div class='flex flex-row gap-4 border-t-2'>
+  <img
+    class="w-32"
+    [src]="alley.image"
+    alt="Image for {{ alley.name }}"
+    crossorigin
+  />
+  <div class='flex flex-col justify-center'>
+    <h2 class="text-xl">{{ alley.name }}</h2>
+    <p class="listing-location">{{ alley.shortname }}</p>
+  </div>
+</div>
