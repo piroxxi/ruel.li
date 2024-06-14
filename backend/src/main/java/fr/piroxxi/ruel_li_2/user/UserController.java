@@ -1,5 +1,7 @@
 package fr.piroxxi.ruel_li_2.user;
 
+import fr.piroxxi.ruel_li_2.user.dto.UserDTO;
+import fr.piroxxi.ruel_li_2.user.dto.UserDTOMapper;
 import fr.piroxxi.ruel_li_2.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

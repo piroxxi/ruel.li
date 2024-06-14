@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Alley } from '../models/alley';
 import { AlleyComponent } from './alley.component';
 import { AlleyService } from '../../alley.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-alley-list',
@@ -12,10 +13,8 @@ import { AlleyService } from '../../alley.service';
   styleUrl: './alley-list.component.css'
 })
 export class AlleyListComponent {
-  alleyList: Alley[];
-  alleyService: AlleyService = inject(AlleyService);
-
-  constructor() {
-    this.alleyList = this.alleyService.getAllAlleys();
+  allAlleysObs: Observable<Alley[]>;
+  constructor(private alleyService: AlleyService) {
+    this.allAlleysObs = this.alleyService.getAllAlleys();
   }
 }

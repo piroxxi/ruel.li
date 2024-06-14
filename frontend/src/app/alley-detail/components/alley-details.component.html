@@ -1,14 +1,18 @@
 <div
   class='flex flex-row gap-4 border-t-2'
+  *ngIf="alleyObs | async; else loading"
 >
   <img
     class="w-64"
-    [src]="alley?.image"
-    alt="Image for {{ alley?.name }}"
+    [src]="(alleyObs | async)?.image"
+    alt="Image for {{ (alleyObs | async)?.name }}"
     crossorigin
   />
   <div class='flex flex-col justify-center'>
-    <h2 class="text-xl">{{ alley?.name }}</h2>
-    <p class="listing-location">{{ alley?.shortname }}</p>
+    <h2 class="text-xl">{{ (alleyObs | async)?.name }}</h2>
+    <p class="listing-location">{{ (alleyObs | async)?.shortname }}</p>
   </div>
 </div>
+<ng-template #loading>
+  ...loading
+</ng-template>

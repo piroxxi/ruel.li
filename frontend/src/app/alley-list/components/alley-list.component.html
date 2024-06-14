@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="allAlleysObs | async; else loading;">
   <form class="my-4 flex flex-row gap-2">
     <input
       class="bg-blue-500 px-4 py-2 rounded-lg text-white border-[1px] border-blue-800"
@@ -14,9 +14,13 @@
   </form>
   <div class='flex flex-col gap-2'>
     <app-alley
-      *ngFor="let alley of alleyList"
+      *ngFor="let alley of allAlleysObs | async;"
       [alley]="alley"
     >
     </app-alley>
   </div>
 </section>
+
+<ng-template #loading>
+  ...loading
+</ng-template>

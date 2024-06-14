@@ -1,9 +1,11 @@
 # Ruel.li Project
 Welcome to the Ruel.li project! This repository hosts a comprehensive web application, composed of two primary subprojects: a backend developed in Java using Spring 3, and a frontend developed in Angular (version 17).
 
-Both front-end and back-end are independant (in a typical local environment, you should start separatly).
+The front-end and back-end subprojects are independent (in a typical local environment you should start them separately).
 
 Both subfolder contains a corresponding README.
+
+This app proposes an authentication mechanism, using a JWT token. 
 
 ## Backend
 To start the backend you will need a JDK, navigate to the backend folder and use maven : 
@@ -17,7 +19,8 @@ To start the backend you will need a JDK, navigate to the backend folder and use
 To start the frontend you will need Node and Angular CLI tool.
 ```
 > cd frontend
-> ng serve --proxy-config proxy.json
+> npm i
+> npm start
 ```
 
 # License

@@ -1,22 +1,26 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Alley } from '../../alley-list/models/alley';
 import { AlleyService } from '../../alley.service';
+import { Observable } from 'rxjs';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-alley-details',
   standalone: true,
-  imports: [],
+  imports: [
+    AsyncPipe,
+    NgIf
+  ],
   templateUrl: './alley-details.component.html',
   styleUrl: './alley-details.component.css'
 })
 export class AlleyDetailsComponent {
-  route: ActivatedRoute = inject(ActivatedRoute);
-  alleyService: AlleyService = inject(AlleyService);
+  private readonly alleyId: string;
+  alleyObs: Observable<Alley>;
 
-  alley: Alley | undefined;
-  constructor() {
-    const alleyId = this.route.snapshot.params['id'];
-    this.alley = this.alleyService.getAlley(alleyId);
+  constructor(private alleyService: AlleyService, private route: ActivatedRoute) {
+    this.alleyId = this.route.snapshot.params['id'];
+    this.alleyObs = this.alleyService.getAlley(this.alleyId);
   }
 }

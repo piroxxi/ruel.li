@@ -1,12 +1,11 @@
-package fr.piroxxi.ruel_li_2.user;
+package fr.piroxxi.ruel_li_2.user.dto;
 
 import fr.piroxxi.ruel_li_2.role.Role;
+import fr.piroxxi.ruel_li_2.user.User;
 import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
-@Component
 public class UserDTOMapper {
     public static UserDTO fromUser(User user){
         UserDTO dto = new UserDTO();

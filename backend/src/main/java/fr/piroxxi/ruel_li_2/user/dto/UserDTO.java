@@ -1,4 +1,4 @@
-package fr.piroxxi.ruel_li_2.user;
+package fr.piroxxi.ruel_li_2.user.dto;
 
 import lombok.Data;
 import java.util.Set;

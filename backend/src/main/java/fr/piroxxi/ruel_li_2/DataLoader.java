@@ -1,5 +1,7 @@
 package fr.piroxxi.ruel_li_2;
 
+import fr.piroxxi.ruel_li_2.alley.Alley;
+import fr.piroxxi.ruel_li_2.alley.AlleyRepository;
 import fr.piroxxi.ruel_li_2.role.Role;
 import fr.piroxxi.ruel_li_2.role.RoleName;
 import fr.piroxxi.ruel_li_2.role.RoleRepository;
@@ -19,6 +21,7 @@ public class DataLoader implements ApplicationRunner {
 
     private final UserService userService;
     private final RoleRepository roleRepository;
+    private final AlleyRepository alleyRepository;
     private final PasswordEncoder passwordEncoder;
 
     public void run(ApplicationArguments args) {
@@ -37,5 +40,20 @@ public class DataLoader implements ApplicationRunner {
         );
 
         userService.addRole(piroxxiAdmin, ADMIN);
+
+        alleyRepository.save(
+                Alley.builder()
+                        .name("Ruelle Boyer/Christophe-Colomb Bellechasse/Beaubien")
+                        .shortname("bbbcc")
+                        .imageUrl("/assets/blank_alley.png")
+                        .build()
+        );
+        alleyRepository.save(
+                Alley.builder()
+                        .name("Ruelle de test")
+                        .shortname("test")
+                        .imageUrl("/assets/blank_alley.png")
+                        .build()
+        );
     }
 }
