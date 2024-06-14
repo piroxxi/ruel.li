@@ -1,0 +1,43 @@
+<div>
+  <h1 class='py-8 text-center text-3xl'>
+    Please login
+  </h1>
+  <form role="form" (submit)="login()">
+    <div class="border-b-[1px] border-gray-400 bg-blue-200 my-3 mx-auto p-2 max-w-96">
+      <label
+        for="username"
+        class="pr-2"
+      >
+        Username:
+      </label>
+      <input
+        type="text"
+        class="bg-transparent"
+        id="username"
+        name="username"
+        [(ngModel)]="credentials.username"
+      />
+    </div>
+    <div class="border-b-[1px] border-gray-400 bg-blue-200 my-3 mx-auto p-2 max-w-96">
+      <label
+        for="password"
+        class="pr-2"
+      >
+        Password:
+      </label>
+      <input
+        type="password"
+        class="bg-transparent"
+        id="password"
+        name="password"
+        [(ngModel)]="credentials.password"
+      />
+    </div>
+    <button
+      type="submit"
+      class="block w-48 mt-12 my-3 mx-auto border-b-[1px] border-gray-400 bg-blue-200 p-2"
+    >
+      Submit
+    </button>
+  </form>
+</div>

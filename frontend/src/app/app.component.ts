@@ -8,7 +8,6 @@ import { VersionComponent } from './version/version.component';
   standalone: true,
   imports: [RouterModule, AlleyListComponent, VersionComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'home';

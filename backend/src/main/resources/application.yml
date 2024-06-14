@@ -6,8 +6,14 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+server:
+  servlet.context-path: /api
+  port: 8081
 
 application:
   title: ruel.li
   version: 0.1.0
-server.port: 8081
+  jwt:
+    cookie-name: ruel.li
+    secret: C8fp6mJ2htE5BGErtx4hkEKKAvv2fUHzKH65uerZGnNzciqScGQTr57gRbFHFPhg
+    expiration: 86400000
